@@ -26,4 +26,5 @@ for value in array:
         count += 1
 
 # Print the count
-print(count)
+print(count) 
+# this is the end of the code
