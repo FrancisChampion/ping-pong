@@ -1,0 +1,17 @@
+from turtle import Turtle, Screen
+import random
+tim = Turtle()
+tim.pensize(15)
+tim.shape('triangle')
+tim.pendown()
+
+
+colour = ['aquamarine', 'dark red', 'mint cream', 'deep pink', 'light slate blue']
+direction = [0, 90, 180, 270]
+for i in range(400):
+    tim.forward(30)
+    tim.setheading(random.choice(direction))
+    tim.color(random.choice(colour))
+
+screen = Screen()
+screen.exitonclick()

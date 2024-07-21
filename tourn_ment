@@ -1,0 +1,72 @@
+def count_characters(string:str) -> dict:
+    char_count ={}
+    for char in string:
+        if char in char_count:
+            char_count[char]+=1
+        else:
+            char_count[char]=1
+    return char_count
+    
+print(count_characters("Hello"))
+print(count_characters("Warwick IFP"))
+print(count_characters("1st CS Tournament"))
+
+
+#another code 
+def reverse_string(input_string):
+    stack = []
+    return input_string[::-1]
+
+print(reverse_string("hello"))
+print(reverse_string("racecar"))
+print(reverse_string("12345"))
+
+#sum pair
+
+def find_sum_pair(arr, target):
+    indices = {}
+    for i, num in enumerate(arr):
+        complement = target - num
+        if complement in indices:
+            return (indices[complement], i)
+        indices[num] = i 
+    return ()
+
+print(find_sum_pair([1, 4, 2, 8, 7, 5], 10))
+print(find_sum_pair([1, 4, 2, 8, 7, 5], 3))
+print(find_sum_pair([1, 4, 2, 8, 7, 5], 20))
+print(find_sum_pair([], 5))
+print(find_sum_pair([1, 2, 3], 4))
+#tree implementation
+class Node:
+    def __init__(self, val):
+        self.val = val
+        self.left = None
+        self.right = None
+
+def count_leaves(root):
+    if not root:
+        return 0
+    if not root.left and not root.right:
+        return 1
+    return count_leaves(root.left) + count_leaves(root.right)
+    
+root1 = Node(1)
+root1.left = Node(2)
+root1.right = Node(3)
+root1.left.left = Node(4)
+root1.left.right = Node(5)
+root1.right.left = Node(6)
+root1.right.right = Node(7)
+print(count_leaves(root1))
+
+root2 = Node(1)
+root2.left = Node(2)
+root2.left.left = Node(3)
+root2.left.right = Node(4)
+root2.left.left.left = Node(5)
+root2.left.left.right = Node(6)
+print(count_leaves(root2))
+        
+root3 = None
+print(count_leaves(root3))
